@@ -13,7 +13,7 @@ import Vant from 'vant';
 Vue.use(Vant);
 import 'vant/lib/index.css';
 
-//引入axios组件库,用来发送ajax请求
+//引入axios组件库,用来发送ajax请求。
 import axios from 'axios';
 //使用axios
 // Vue.use(axios);

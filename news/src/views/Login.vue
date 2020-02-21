@@ -95,15 +95,26 @@ export default {
         this.$toast("请输入完整信息")
         return;
       }
+      // jq用法回顾
+      // $.ajax ({
+      //   url,
+      //   type,
+      //   data,
+      //   success
+      // })
+
       // this.$axios({
       //axios是基于promise机制的一个请求库
       //现在先熟悉promise的应用
       //promise最大的特点是回调函数直接跟在前一个函数后面，使用.then进行拼接
       //这叫链式调用
       //这里执行登陆
+      // 一样是配置对象
       //     url:'http://liangwei.tech:3000/post',
-      //     // method是指请求类型
-      //     method:'get'
+      // jq的type 变成 method
+      // method是指请求类型
+      // method:'get'
+      // 这里成功回调不再是success
       // }).then(
       //     // function(res){
       //     //     console.log(res);
@@ -112,6 +123,9 @@ export default {
       //         // res.data就是服务器返回的数据，接下来只需要根据数据结构进行渲染即可，数据结果已经是json格式
       //         console.log(res.data);
       //     }
+      // )
+      // 成功的回调应该是这个括号后面接上 .then(
+        // 一个函数接收res
       // )
 
       //post方式
