@@ -104,11 +104,9 @@ export default {
       // })
 
       // this.$axios({
-      //axios是基于promise机制的一个请求库
-      //现在先熟悉promise的应用
-      //promise最大的特点是回调函数直接跟在前一个函数后面，使用.then进行拼接
-      //这叫链式调用
-      //这里执行登陆
+      // 如何带参数
+      // 这里想要带参
+      // 如果是get请求的参数使用params对象
       // 一样是配置对象
       //     url:'http://liangwei.tech:3000/post',
       // jq的type 变成 method
@@ -116,11 +114,7 @@ export default {
       // method:'get'
       // 这里成功回调不再是success
       // }).then(
-      //     // function(res){
-      //     //     console.log(res);
-      //     // }
       //     res => {
-      //         // res.data就是服务器返回的数据，接下来只需要根据数据结构进行渲染即可，数据结果已经是json格式
       //         console.log(res.data);
       //     }
       // )
@@ -132,6 +126,9 @@ export default {
       this.$axios({
         url: "http://liangwei.tech:3000/login",
         method: "post",
+        // 登陆需要传参
+        // 这是post请求 传参方式不一样
+        // 使用data对象传参
         data: {
           username: "10010",
           password: "123"
