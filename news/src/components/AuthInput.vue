@@ -25,6 +25,11 @@
       <!-- 假设我希望, 如果 isValid 为 true 则添加 success 的 class  -->
       <!-- 现在input 已经可以根据 isValid 动态改变 class 接下来只需要 给 err
       class 添加特定的 样式即可 -->
+      <!-- 如果像用ref获取dom 
+        ref只在当前组件生效
+        因为每个组件之间都是独立的对象
+      -->
+      <!-- <input type="text" ref="abc"> -->
       <input
         :class="{
           err: !isValid,
@@ -55,6 +60,7 @@ export default {
       const regExp = new RegExp(this.rule)
       this.isValid = regExp.test(event.target.value);
       this.$emit('valueChange',event.target.value)
+      // console.log(this.$refs);
     },
     showAlert(){
       //失去焦点触发函数
@@ -62,7 +68,14 @@ export default {
       //证明不合法，需要弹窗
       //合法就无弹窗
       if (!this.isValid){
-        alert(this.errMsg)
+        // alert(this.errMsg)
+        // 这个弹窗非常烦人
+        // 因为已经在最外面对入口文件main.js
+        // 引入了vant ui库的toast组件
+        // 直接调用this.$toast('提示文字')即可
+        this.$toast(this.errMsg)
+        // 因为这里引入了组件库。所以多出了$toast函数
+        // 没有引入就用不了
       }
     }
   }
