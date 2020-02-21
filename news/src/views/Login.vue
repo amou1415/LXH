@@ -122,7 +122,8 @@ export default {
         // 一个函数接收res
       // )
 
-      //post方式
+      // post方式
+      // 如果post请求不传参必然报错
       this.$axios({
         url: "http://liangwei.tech:3000/login",
         method: "post",
@@ -141,6 +142,10 @@ export default {
         // 接下来只要根据数据结构进行渲染即可
         // 数据结果已经是json格式的数据对象
         // 不用自己转换
+
+        // 看看报错的情况下，能不能打印结果
+        // 报错的时候不会进来这个 .then的第一个回调函数
+        // console.log('这里是成功处理')
         console.log(res.data);
         const { statusCode, message } = res.data;
         if (statusCode == 200 && message) {
@@ -155,8 +160,17 @@ export default {
         // if (res.data.statusCode == 200 && res.data.message){
         //     this.$toast(res.data.message)
         // }
-      });
-      // .catch(err=>{
+      })
+      // 第一种错误处理方式
+      // err => {
+        // console.log('这里是错误处理');
+        // console.log(err);
+      // }
+      
+      // 第二种错误处理方式是,在 .then 之后继续链式调用一个 .catch 捕获错误
+      // .catch(
+        // 这里可以编写捕获错误后的回调函数
+        // err=>{
       //     console.dir(err);
       //     console.log(err.response);
       //     this.$toast.fail(err.response.data.message ||"系统错误")
