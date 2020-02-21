@@ -91,8 +91,9 @@ export default {
       this.username = username;
     },
     login() {
-      if (!this.username || this.password) {
-        this.$toast("请输入完整信息");
+      if (!this.username || !this.password) {
+        this.$toast("请输入完整信息")
+        return;
       }
       // this.$axios({
       //axios是基于promise机制的一个请求库
@@ -151,6 +152,8 @@ export default {
       // console.log('登录按钮被点击');
       // console.log('用户名是'+this.username);
       // console.log('密码是'+this.password);
+      // console.log(this.$refs);
+      // console.log(this);
       // 这里获取到的数据就可以用来发送请求了
       // this.$axios({
       //     url:"/post",
