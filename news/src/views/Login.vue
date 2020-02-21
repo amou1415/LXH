@@ -137,6 +137,13 @@ export default {
           password: "123"
         }
       }).then(res => {
+        // 这里是放回调函数的地方，以参数形式放入
+        // .then 的第一个参数就是处理数据的回调，相当于jq的success
+        // 同样可以接收res参数
+        // res.data就是服务器返回的数据
+        // 接下来只要根据数据结构进行渲染即可
+        // 数据结果已经是json格式的数据对象
+        // 不用自己转换
         console.log(res.data);
         const { statusCode, message } = res.data;
         if (statusCode == 200 && message) {
