@@ -8,7 +8,7 @@ import Vue from 'vue'
 import App from '@/App.vue'
 import router from './router'
 
-//引入组件库
+//引入组件库，
 import Vant from 'vant';
 Vue.use(Vant);
 import 'vant/lib/index.css';
