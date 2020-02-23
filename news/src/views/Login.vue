@@ -31,7 +31,7 @@
       placeholder="请输入用户名"
       rule="^.{3,10}$"
       errMsg="请输入正确的用户名"
-      @valueChange="setUserName"
+      @valueChange="setUsername"
     ></AuthInput>
     <!-- 登录页如果要添加一个输入密码的输入框怎么办
         不需要在碰输入框组建了
@@ -39,7 +39,7 @@
     <AuthInput
       type="password"
       placeholder="请输入密码"
-      rule="^.{6}$"
+      rule="^.{3,10}$"
       errMsg="请输入正确密码"
       @valueChange="setPassword"
     ></AuthInput>
@@ -86,7 +86,7 @@ export default {
       // console.log('父组件接收到了密码输入框的数据更新, 先存在自己的data 当中');
       this.password = password;
     },
-    setUserName(username) {
+    setUsername(username) {
       // console.log('父组件接收到了用户名输入框的数据更新, 先存在自己的data 当中');
       this.username = username;
     },
@@ -95,13 +95,7 @@ export default {
         this.$toast("请输入完整信息")
         return;
       }
-      // jq用法回顾
-      // $.ajax ({
-      //   url,
-      //   type,
-      //   data,
-      //   success
-      // })
+
 
       // this.$axios({
       // 如何带参数
@@ -130,9 +124,9 @@ export default {
         // 登陆需要传参
         // 这是post请求 传参方式不一样
         // 使用data对象传参
-        data: {
-          username: "10010",
-          password: "123"
+        data:{
+          username:this.username,
+          password:this.password
         }
       }).then(res => {
         // 这里是放回调函数的地方，以参数形式放入
@@ -166,34 +160,6 @@ export default {
         // console.log('这里是错误处理');
         // console.log(err);
       // }
-      
-      // 第二种错误处理方式是,在 .then 之后继续链式调用一个 .catch 捕获错误
-      // .catch(
-        // 这里可以编写捕获错误后的回调函数
-        // err=>{
-      //     console.dir(err);
-      //     console.log(err.response);
-      //     this.$toast.fail(err.response.data.message ||"系统错误")
-
-      // })
-
-      // console.log('父组件监听到子组件传递过来的时间,绑定的函数被触发了');
-      // 每次我们的输入框子组件输入的数据都会存放在 data 当中
-      // 所以这里如果要登录
-      // 直接获取 this.username 和 this.password 即可
-      // console.log('登录按钮被点击');
-      // console.log('用户名是'+this.username);
-      // console.log('密码是'+this.password);
-      // console.log(this.$refs);
-      // console.log(this);
-      // 这里获取到的数据就可以用来发送请求了
-      // this.$axios({
-      //     url:"/post",
-      //     method:"get",
-      // }).then(res=>{
-      //     console.log(res);
-
-      // })
     }
   }
 };
