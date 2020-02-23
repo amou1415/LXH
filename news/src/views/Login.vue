@@ -140,7 +140,6 @@ export default {
         // 看看报错的情况下，能不能打印结果
         // 报错的时候不会进来这个 .then的第一个回调函数
         // console.log('这里是成功处理')
-        console.log(res.data);
         const { statusCode, message } = res.data;
         if (statusCode == 200 && message) {
           this.$toast.success(message);
